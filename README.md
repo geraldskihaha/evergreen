@@ -11,7 +11,8 @@ sign-in, with every database call going through JDBC `PreparedStatement`s.
 | Area | What it does |
 |---|---|
 | **Sign in** | Three roles - Admin, Staff and Member - each with its own dashboard |
-| **Books** | Add, edit and delete titles, with confirmation before a delete |
+| **Dashboard** | Live totals for books and users, plus the most recent loans across the library |
+| **Books** | Add, edit and delete titles, with confirmation before a delete (Staff can add; Admin can edit and delete) |
 | **Borrow / Return** | Records the borrower, borrow date, a 14-day due date and the return date, in a transaction |
 | **Search** | Filters the catalogue by title, author, ISBN or category |
 | **Users** | Add, edit and disable accounts (Admin only) |
@@ -23,6 +24,14 @@ sign-in, with every database call going through JDBC `PreparedStatement`s.
 | Admin dashboard | Books |
 |---|---|
 | ![Admin dashboard](docs/admin-dashboard.png) | ![Books](docs/admin-books.png) |
+
+| Staff dashboard | Member dashboard |
+|---|---|
+| ![Staff dashboard](docs/staff-dashboard.png) | ![Member dashboard](docs/member-dashboard.png) |
+
+| Member - browse and borrow | Member - my loans |
+|---|---|
+| ![Member browse books](docs/member-books.png) | ![Member my loans](docs/member-loans.png) |
 
 ## Tech stack
 
@@ -54,8 +63,8 @@ The database is created and seeded automatically on first launch, so there is no
 | Username | Password | Role |
 |---|---|---|
 | `admin` | `admin123` | Full access: books, users, reports, profile |
-| `staff` | `staff123` | Books and reports, no user management |
-| `member` | `member123` | Browse, borrow and return, own loan history |
+| `staff` | `staff123` | Add books, borrow and return, reports - no user management |
+| `member` | `member123` | Browse, borrow and return, and their own loan history under **My Loans** |
 
 ## Project structure
 
@@ -80,3 +89,4 @@ and the DAO returns **model** objects.
 - Data lives in `data/library.db`. Delete that file to start again from a fresh, seeded database.
 - The database path is relative, so launch the app from the project folder.
 - Passwords are stored hashed, never in plain text.
+- The dashboard's **Recent Borrowings** card is the same for every role - it lists the latest loans across the whole library. A member's own history is on the **My Loans** page.
