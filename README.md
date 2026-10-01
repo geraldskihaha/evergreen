@@ -80,8 +80,3 @@ and the DAO returns **model** objects.
 - Data lives in `data/library.db`. Delete that file to start again from a fresh, seeded database.
 - The database path is relative, so launch the app from the project folder.
 - Passwords are stored hashed, never in plain text.
-
----
-
-**IPT 101 Final Project** - Bestlink College of the Philippines
-Cartoneros, Gerald L. - Lood, Justine M. - Sabeniano, Joyce Grace D. - Seray, Mikee E.
