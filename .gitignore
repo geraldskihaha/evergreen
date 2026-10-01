@@ -1,0 +1,12 @@
+# Build output
+build/
+dist/
+
+# Runtime database
+data/
+
+# NetBeans private settings
+nbproject/private/
+
+# Compiled classes
+*.class	
